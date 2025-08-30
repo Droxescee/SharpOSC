@@ -1,3 +1,7 @@
+Changes in this fork
+===================================
+Fixed the byte array handling of OSC Messages to support booleans properly. -> v0.1.1.1
+
 SharpOSC - OSC Library for .NET 3.5
 ===================================
 
