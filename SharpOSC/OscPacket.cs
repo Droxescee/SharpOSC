@@ -222,7 +222,7 @@ namespace SharpOSC
 					if (i == 0)
 						return "";
 
-					address = Encoding.ASCII.GetString(msg.SubArray(index, i - 1));
+					address = Encoding.ASCII.GetString(msg.SubArray(index, i - index));
 					break;
 				}
 			}
@@ -235,12 +235,12 @@ namespace SharpOSC
 
 		private static char[] getTypes(byte[] msg, int index)
 		{
-			int i = index + 4;
+			int i = index;
 			char[] types = null;
 
-			for (; i < msg.Length; i += 4)
+			for (; i < msg.Length; i ++)
 			{
-				if (msg[i - 1] == 0)
+				if (msg[i] == 0)
 				{
 					types = Encoding.ASCII.GetChars(msg.SubArray(index, i - index));
 					break;
